@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Optional;
 
 /**
- * Enumerator che definisce il tipo di elemento strutturale da considerare
+ * Enumerator che definisce il tipo di elemento strutturale da considerare.
  */
 public enum TipoElementoStrutturale {
     TRAVE(0),
@@ -17,10 +17,19 @@ public enum TipoElementoStrutturale {
         this.value = value;
     }
 
-    public static TipoElementoStrutturale getEnumFromValue(int value) {
-        Optional<TipoElementoStrutturale> first = Arrays.stream(values())
+    /**
+     * Restituisce il valore intero associato all'enum.
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * Restituisce l'enum corrispondente al valore passato, se presente.
+     */
+    public static Optional<TipoElementoStrutturale> getEnumFromValue(int value) {
+        return Arrays.stream(values())
                 .filter(tipo -> tipo.value == value)
                 .findFirst();
-        return first;
     }
 }
